@@ -38,7 +38,7 @@ class Ball(pg.sprite.Sprite):
                 ball.velocity.x, 1)
             brick.hits += 1
 
-            if brick.hits == 5:
+            if brick.hits == 3:
                 brick.kill()
 
             brick.update_image()

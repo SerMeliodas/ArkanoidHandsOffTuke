@@ -3,7 +3,7 @@ from spritesheet import SpriteSheet
 
 
 class Brick(pg.sprite.Sprite):
-    def __init__(self, image: str, pos: pg.Vector2 = pg.Vector2(0, 0)):
+    def __init__(self, pos: pg.Vector2 = pg.Vector2(0, 0)):
         super().__init__()
         self.spritesheet = SpriteSheet(
             'assets/spritesheets/bricks32_16.png',
