@@ -1,4 +1,5 @@
 from .state import State
+from random import randint
 import pygame as pg
 import config
 import sys
@@ -12,6 +13,16 @@ class GameplayState(State):
 
         self.balls = pg.sprite.Group()
         self.bricks = pg.sprite.Group()
+        self.background = SpriteSheet(
+            'assets/spritesheets/Backround_Tiles.png', (32, 100)
+        ).get_frame(pg.Vector2(randint(1, 8), 0))
+        self.background = pg.transform.scale_by(self.background, 11)
+
+        self.back_rect = self.background.get_rect(center=(
+            self.background.get_width() // 2,
+            self.background.get_height() // 2
+        ))
+        self.back_rect.center = self.window_rect.center
 
     def setup(self):
         if self.persist.get('level'):
@@ -31,11 +42,10 @@ class GameplayState(State):
     def _setup_bricks(self):
         for col in range(10):
             for row in range(5):
-                brick = Brick('assets/sprites/element_blue_rectangle.png')
-                brick.rect.x = col * brick.image.get_width() + config.BRICK_MARGIN * \
-                    col + config.BRICK_MARGIN
-                brick.rect.y = row * brick.image.get_height() + config.BRICK_MARGIN * \
-                    row + config.BRICK_MARGIN
+                brick = Brick(pg.Vector2(
+                    col * 32 + config.BRICK_MARGIN * col + config.BRICK_MARGIN,
+                    row * 16 + config.BRICK_MARGIN * row + config.BRICK_MARGIN
+                ))
 
                 self.bricks.add(brick)
 
@@ -51,6 +61,7 @@ class GameplayState(State):
             self.done = True
 
     def draw(self, surface: pg.Surface):
+        surface.blit(self.background, self.back_rect)
         surface.blit(self.paddle.image, self.paddle.rect)
 
         self.balls.draw(surface)
@@ -109,9 +120,11 @@ class GameOverState(State):
         if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
             if self.restart_button.rect.collidepoint(event.pos[0] - self.rect.x,
                                                      event.pos[1] - self.rect.y):
-                self.persist['level']['ball'].kill()
-                self.persist['level']['bricks'].empty()
-                del self.persist['level']
+                if self.persist.get('level'):
+                    self.persist['level']['ball'].kill()
+                    self.persist['level']['bricks'].empty()
+                    del self.persist['level']
+
                 self.done = True
 
             if self.quit_button.rect.collidepoint(event.pos[0] - self.rect.x,

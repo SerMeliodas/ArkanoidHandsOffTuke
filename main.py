@@ -9,6 +9,7 @@ if __name__ == "__main__":
     window = pg.display.set_mode((config.SCREEN_WIDTH,
                                   config.SCREEN_HEIGHT,),
                                  flags=pg.SCALED)
+
     states = {
         "gameplay": GameplayState(),
         "game_over": GameOverState(),
