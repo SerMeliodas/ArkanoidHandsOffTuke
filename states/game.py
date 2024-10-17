@@ -15,7 +15,7 @@ class GameplayState(State):
         self.bricks = pg.sprite.Group()
         self.background = SpriteSheet(
             'assets/spritesheets/Backround_Tiles.png', (32, 100)
-        ).get_frame(pg.Vector2(randint(1, 8), 0))
+        ).get_frame(pg.Vector2(randint(0, 7), 0))
         self.background = pg.transform.scale_by(self.background, 11)
 
         self.back_rect = self.background.get_rect(center=(
@@ -24,12 +24,19 @@ class GameplayState(State):
         ))
         self.back_rect.center = self.window_rect.center
 
+        self.start_sound = pg.mixer.Sound('assets/sounds/round_start.mp3')
+        self.ost = pg.mixer.Sound('assets/sounds/ost.mp3')
+        self.ost.set_volume(0.1)
+
     def setup(self):
         if self.persist.get('level'):
             self.bricks = self.persist['level']['bricks']
             self.paddle = self.persist['level']['paddle']
             self.balls = self.persist['level']['balls']
             return
+
+        self.start_sound.play()
+        self.ost.play(loops=-1)
 
         self.paddle = Paddle(pg.Vector2(
             self.window_rect.width // 2, self.window_rect.height))
@@ -57,6 +64,7 @@ class GameplayState(State):
                 'paddle': self.paddle,
                 'balls': self.balls,
                 'ball': self.ball,
+                'ost': self.ost
             }
             self.done = True
 
@@ -77,10 +85,12 @@ class GameplayState(State):
         )
 
         if pg.sprite.collide_rect(self.paddle, self.ball):
+            self.ball.bound_sound.play()
             self.ball.velocity = pg.Vector2(
                 self.ball.velocity.x, -1)
 
         if len(self.balls) == 0:
+            self.ost.stop()
             self.next_state = "game_over"
             self.quit = True
 
@@ -102,7 +112,13 @@ class GameOverState(State):
 
         self.rect.center = self.window_rect.center
         self.next_state = 'gameplay'
+        self.game_over_sound = pg.mixer.Sound('assets/sounds/game_over.mp3')
         self._setup_buttons()
+
+    def start_up(self, persist):
+        super().start_up(persist)
+
+        self.game_over_sound.play()
 
     def _setup_buttons(self):
         self.restart_button = Button(self.spritesheet.get_frame(

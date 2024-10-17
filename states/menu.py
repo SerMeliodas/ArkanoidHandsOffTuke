@@ -105,6 +105,7 @@ class PauseMenuState(State):
 
             if self.restart_button.rect.collidepoint(event.pos[0] - self.rect.x,
                                                      event.pos[1] - self.rect.y):
+                self.persist['level']['ost'].stop()
                 self.persist['level']['ball'].kill()
                 self.persist['level']['bricks'].empty()
                 del self.persist['level']
