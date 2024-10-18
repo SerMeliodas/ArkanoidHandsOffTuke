@@ -1,0 +1,12 @@
+{
+  "name": "Level 2",
+  "index": 0,
+  "map": [
+    [
+      {
+        "color": "green",
+        "hits": 2
+      }
+    ]
+  ]
+}

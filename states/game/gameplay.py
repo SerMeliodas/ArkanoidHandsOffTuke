@@ -87,6 +87,12 @@ class GameplayState(State):
             self.ball.velocity = pg.Vector2(
                 self.ball.velocity.x, -1)
 
+        if len(self.level.bricks.sprites()) == 0:
+            self.ost.stop()
+            self.next_state = "win"
+            self.gen_persist()
+            self.quit = True
+
         if len(self.balls) == 0:
             self.ost.stop()
             self.next_state = "game_over"

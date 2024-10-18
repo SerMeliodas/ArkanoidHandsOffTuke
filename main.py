@@ -1,7 +1,8 @@
 from game import Game
 import pygame as pg
 from states import (GameplayState, GameOverState, MainMenuState,
-                    PauseMenuState, LevelMenuState, PassedLevelState)
+                    PauseMenuState, LevelMenuState,
+                    WinMenuState)
 import config
 
 
@@ -17,7 +18,7 @@ if __name__ == "__main__":
         "main_menu": MainMenuState(),
         "pause_menu": PauseMenuState(),
         "level_menu": LevelMenuState(),
-        "passed_level_menu": PassedLevelState()
+        "win": WinMenuState()
     }
     game = Game(window,
                 states, "main_menu")
