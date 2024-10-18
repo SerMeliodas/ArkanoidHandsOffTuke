@@ -25,3 +25,10 @@ class Button(pg.sprite.Sprite):
 
         self.rect.x = pos.x
         self.rect.y = pos.y
+
+
+class LevelButton(Button):
+    def __init__(self, image: pg.Surface, pos: pg.Vector2, text: str, level_index: int):
+        super().__init__(image, pos, text)
+
+        self.level_index = level_index

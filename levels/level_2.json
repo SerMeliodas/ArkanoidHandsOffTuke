@@ -1,0 +1,216 @@
+{
+  "name": "Level 2",
+  "index": 0,
+  "map": [
+    [
+      {
+        "color": "green",
+        "hits": 2
+      },
+      {
+        "color": "green",
+        "hits": 2
+      },
+      {
+        "color": "green",
+        "hits": 2
+      },
+      {
+        "color": "green",
+        "hits": 2
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "green",
+        "hits": 2
+      },
+      {
+        "color": "green",
+        "hits": 2
+      },
+      {
+        "color": "green",
+        "hits": 2
+      },
+      {
+        "color": "green",
+        "hits": 2
+      }
+    ],
+    [
+      {
+        "color": "red",
+        "hits": 2
+      },
+      {
+        "color": "red",
+        "hits": 2
+      },
+      {
+        "color": "red",
+        "hits": 2
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "red",
+        "hits": 2
+      },
+      {
+        "color": "red",
+        "hits": 2
+      },
+      {
+        "color": "red",
+        "hits": 2
+      }
+    ],
+    [
+      {
+        "color": "purple",
+        "hits": 2
+      },
+      {
+        "color": "purple",
+        "hits": 2
+      },
+      {
+        "color": "purple",
+        "hits": 2
+      },
+      {
+        "color": "purple",
+        "hits": 2
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "yellow",
+        "hits": 3
+      },
+      {
+        "color": "purple",
+        "hits": 2
+      },
+      {
+        "color": "purple",
+        "hits": 2
+      },
+      {
+        "color": "purple",
+        "hits": 2
+      },
+      {
+        "color": "purple",
+        "hits": 2
+      }
+    ],
+    [
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      }
+    ],
+    [
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      },
+      {
+        "color": "orange",
+        "hits": 1
+      }
+    ]
+  ]
+}
